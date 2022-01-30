@@ -4,7 +4,7 @@ var logger = require('morgan');
 
 require('./src/models/db/database.config')
 
-var usersRouter = require('./src/routes/users');
+var usersRouter = require('./src/routes/users.routes');
 
 var app = express();
 

@@ -9,8 +9,11 @@ const downloadNote = require('../controllers/notes/downloadNote')
 const listNotes = require('../controllers/notes/listNotes')
 const updateNote = require('../controllers/notes/updateNote')
 const deleteNote = require('../controllers/notes/deleteNote')
+const searchNotes = require('../controllers/notes/searchNotes')
 
 router.post('/', withAuth, createNote)
+
+router.get('/search', withAuth, searchNotes)
 
 router.get('/:id', withAuth, downloadNote)
 

@@ -12,13 +12,13 @@ const WithAuth = (request, response, next) => {
     response.status(401).json({ error: 'Unauthorized: no token provided or available' })
 
   else {
-    jwt.verify(token, secret, (error, decode) => {
+    jwt.verify(token, secretToken, (error, decoded) => {
       if(error)
         response.status(401).json({ error: 'Unauthorized: token not valid' })
 
       else {
-        request.email = decode.email
-        User.findOne({ email: decode.email })
+        request.email = decoded.email
+        User.findOne({ email: decoded.email })
         .then(user => {
           request.user = user
           next()
